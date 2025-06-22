@@ -18,28 +18,28 @@
 #### Crear un CI
 - **POST** `/api/cis`
 - **Body:**  
-  ```json
-  {
-    "name": "ServidorTest",
-    "ci_type_id": 1,
-    "description": "Servidor de pruebas",
-    "serial_number": "SN000000",
-    "version": "v1.0",
-    "acquisition_date": "2023-01-01",
-    "status": "Activo",
-    "physical_location": "Datacenter A",
-    "owner": "Equipo de QA",
-    "change_date": "2023-01-02",
-    "change_description": "Creación inicial",
-    "documentation_link": "https://doc.test/manual",
-    "incident_link": "https://inc.test/issue",
-    "security_level_id": 1,
-    "compliance_id": 1,
-    "configuration_status": "Aprobado",
-    "license_number": "LIC9999",
-    "license_expiration": "2024-01-01"
-  }
-  ```
+    ```json
+    {
+      "name": "Servidor test",
+      "ci_type_id": 1,
+      "description": "Servidor de Aplicaciones",
+      "serial_number": "SN123456",
+      "version": "v1.0",
+      "acquisition_date": "2022-01-01",
+      "status": "Activo",
+      "physical_location": "Sala de Servidores 1",
+      "owner": "Equipo de Infraestructura",
+      "change_date": "2022-02-01",
+      "change_description": "Actualización de Software",
+      "documentation_link": "https://docs.servidor1.com/manual",
+      "incident_link": "https://servicedesk/incidente123",
+      "security_level_id": 1,
+      "compliance_id": 1,
+      "configuration_status": "Aprobado",
+      "license_number": "ABC123",
+      "license_expiration": "2023-01-01"
+    }
+    ```
 - **Response:**  
   `201 Created`  
   Devuelve el CI creado.
@@ -50,25 +50,229 @@
 - **GET** `/api/cis`
 - **Response:**  
   `200 OK`  
-  Lista de CIs.
+
+
+
+```json
+  [
+	{
+		"id": 1,
+		"name": "Servidor1",
+		"ci_type_id": 1,
+		"description": "Servidor de Aplicaciones",
+		"serial_number": "SN123456",
+		"version": "v1.0",
+		"acquisition_date": "2022-01-01T06:00:00.000Z",
+		"status": "Activo",
+		"physical_location": "Sala de Servidores 1",
+		"owner": "Equipo de Infraestructura",
+		"change_date": "2022-02-01T06:00:00.000Z",
+		"change_description": "Actualización de Software",
+		"documentation_link": "https://docs.servidor1.com/manual",
+		"incident_link": "https://incidentes.com/servidor1",
+		"security_level_id": 3,
+		"compliance_id": 2,
+		"configuration_status": "Aprobado",
+		"license_number": "ABC123",
+		"license_expiration": "2023-01-01T06:00:00.000Z",
+		"created_at": "2025-06-22T12:37:15.029Z",
+		"updated_at": "2025-06-22T12:37:15.029Z"
+	},
+	{
+		"id": 2,
+		"name": "Aplicación",
+		"ci_type_id": 2,
+		"description": "Aplicación de contabilidad",
+		"serial_number": null,
+		"version": "v2.5",
+		"acquisition_date": "2022-03-15T06:00:00.000Z",
+		"status": "Activo",
+		"physical_location": "Servidor1",
+		"owner": "Equipo de Desarrollo",
+		"change_date": "2022-04-01T06:00:00.000Z",
+		"change_description": "Parche de Seguridad",
+		"documentation_link": "https://docs.app.com/tecnica",
+		"incident_link": "https://incidentes.com/app",
+		"security_level_id": 2,
+		"compliance_id": 2,
+		"configuration_status": "Aprobado",
+		"license_number": "XYZ456",
+		"license_expiration": "2024-01-01T06:00:00.000Z",
+		"created_at": "2025-06-22T12:37:15.079Z",
+		"updated_at": "2025-06-22T12:37:15.079Z"
+	},
+	{
+		"id": 3,
+		"name": "Base de Datos1",
+		"ci_type_id": 3,
+		"description": "PostgreSQL para contabilidad",
+		"serial_number": null,
+		"version": "v13.2",
+		"acquisition_date": "2022-01-10T06:00:00.000Z",
+		"status": "Activo",
+		"physical_location": "Sala de Servidores 1",
+		"owner": "DBA Team",
+		"change_date": "2022-03-01T06:00:00.000Z",
+		"change_description": "Actualización de motor DB",
+		"documentation_link": "https://docs.db.com/postgres",
+		"incident_link": "https://incidentes.com/db",
+		"security_level_id": 3,
+		"compliance_id": 2,
+		"configuration_status": "Aprobado",
+		"license_number": "DB7890",
+		"license_expiration": "2025-01-10T06:00:00.000Z",
+		"created_at": "2025-06-22T12:37:15.129Z",
+		"updated_at": "2025-06-22T12:37:15.129Z"
+	},
+	{
+		"id": 4,
+		"name": "Servidor1",
+		"ci_type_id": 1,
+		"description": "Servidor de Aplicaciones",
+		"serial_number": "SN123456",
+		"version": "v1.0",
+		"acquisition_date": "2022-01-01T06:00:00.000Z",
+		"status": "Activo",
+		"physical_location": "Sala de Servidores 1",
+		"owner": "Equipo de Infraestructura",
+		"change_date": "2022-02-01T06:00:00.000Z",
+		"change_description": "Actualización de Software",
+		"documentation_link": "https://docs.servidor1.com/manual",
+		"incident_link": "https://servicedesk/incidente123",
+		"security_level_id": 1,
+		"compliance_id": 1,
+		"configuration_status": "Aprobado",
+		"license_number": "ABC123",
+		"license_expiration": "2023-01-01T06:00:00.000Z",
+		"created_at": "2025-06-22T13:23:53.761Z",
+		"updated_at": "2025-06-22T13:23:53.761Z"
+	},
+	{
+		"id": 5,
+		"name": "Servidor1",
+		"ci_type_id": 1,
+		"description": "Servidor de Aplicaciones",
+		"serial_number": "SN123456",
+		"version": "v1.0",
+		"acquisition_date": "2022-01-01T06:00:00.000Z",
+		"status": "Activo",
+		"physical_location": "Sala de Servidores 1",
+		"owner": "Equipo de Infraestructura",
+		"change_date": "2022-02-01T06:00:00.000Z",
+		"change_description": "Actualización de Software",
+		"documentation_link": "https://docs.servidor1.com/manual",
+		"incident_link": "https://servicedesk/incidente123",
+		"security_level_id": 1,
+		"compliance_id": 1,
+		"configuration_status": "Aprobado",
+		"license_number": "ABC123",
+		"license_expiration": null,
+		"created_at": "2025-06-22T13:25:26.885Z",
+		"updated_at": "2025-06-22T13:25:26.885Z"
+	},
+	{
+		"id": 7,
+		"name": "Servidor test",
+		"ci_type_id": 1,
+		"description": "Servidor actualizado",
+		"serial_number": "SN123456",
+		"version": "v2.1",
+		"acquisition_date": "2022-01-01T06:00:00.000Z",
+		"status": "Activo",
+		"physical_location": "Sala de Servidores 1",
+		"owner": "Equipo de Infraestructura",
+		"change_date": "2022-02-01T06:00:00.000Z",
+		"change_description": "Actualización de Software",
+		"documentation_link": "https://docs.servidor1.com/manual",
+		"incident_link": "https://servicedesk/incidente123",
+		"security_level_id": 1,
+		"compliance_id": 1,
+		"configuration_status": "Aprobado",
+		"license_number": "ABC123",
+		"license_expiration": "2023-01-01T06:00:00.000Z",
+		"created_at": "2025-06-22T13:32:31.763Z",
+		"updated_at": "2025-06-22T13:32:52.860Z"
+	}
+]
+
+```
+
 
 ---
 
 #### Obtener CI por ID
 - **GET** `/api/cis/:id`
+- **Request** `/api/cis/1`
 - **Response:**  
   `200 OK`  
-  Objeto CI.
+```json
+{
+	"id": 1,
+	"name": "Servidor1",
+	"ci_type_id": 1,
+	"description": "Servidor de Aplicaciones",
+	"serial_number": "SN123456",
+	"version": "v1.0",
+	"acquisition_date": "2022-01-01T06:00:00.000Z",
+	"status": "Activo",
+	"physical_location": "Sala de Servidores 1",
+	"owner": "Equipo de Infraestructura",
+	"change_date": "2022-02-01T06:00:00.000Z",
+	"change_description": "Actualización de Software",
+	"documentation_link": "https://docs.servidor1.com/manual",
+	"incident_link": "https://incidentes.com/servidor1",
+	"security_level_id": 3,
+	"compliance_id": 2,
+	"configuration_status": "Aprobado",
+	"license_number": "ABC123",
+	"license_expiration": "2023-01-01T06:00:00.000Z",
+	"created_at": "2025-06-22T12:37:15.029Z",
+	"updated_at": "2025-06-22T12:37:15.029Z"
+}
+```
 
 ---
 
 #### Actualizar un CI
 - **PUT** `/api/cis/:id`
+- **Request**: `/api/cis/7`
 - **Body:**  
-  Campos a actualizar (ejemplo: `{ "version": "v1.1" }`)
+```json
+{
+  "description": "Servidor actualizado",
+  "version": "v2.1"
+}
+```
+
 - **Response:**  
   `200 OK`  
-  CI actualizado.
+
+```json
+  {
+	"id": 7,
+	"name": "Servidor test",
+	"ci_type_id": 1,
+	"description": "Servidor actualizado",
+	"serial_number": "SN123456",
+	"version": "v2.1",
+	"acquisition_date": "2022-01-01T06:00:00.000Z",
+	"status": "Activo",
+	"physical_location": "Sala de Servidores 1",
+	"owner": "Equipo de Infraestructura",
+	"change_date": "2022-02-01T06:00:00.000Z",
+	"change_description": "Actualización de Software",
+	"documentation_link": "https://docs.servidor1.com/manual",
+	"incident_link": "https://servicedesk/incidente123",
+	"security_level_id": 1,
+	"compliance_id": 1,
+	"configuration_status": "Aprobado",
+	"license_number": "ABC123",
+	"license_expiration": "2023-01-01T06:00:00.000Z",
+	"created_at": "2025-06-22T13:32:31.763Z",
+	"updated_at": "2025-06-22T13:32:52.860Z"
+}
+  
+```
 
 ---
 
