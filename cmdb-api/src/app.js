@@ -1,10 +1,12 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-require("dotenv").config();
 
 app.use(express.json());
 
-//const ciRoutes = require("./routes/ci.routes");
-// app.use("/api/cis", ciRoutes);
+app.use('/api/cis', require('./routes/ci.routes'));
+app.use('/api/cis', require('./routes/ciTags.routes'));
+app.use('/api/cis', require('./routes/ciRelationships.routes'));
+app.use('/api/cis', require('./routes/changeLogs.routes'));
+
 
 module.exports = app;
