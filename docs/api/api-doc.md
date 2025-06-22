@@ -5,7 +5,7 @@
 
 ## Requerimientos
 - **Node.js:** Entorno de ejecución para JavaScript en el backend.
-- **Express:** Framework web utilizado en el backend.
+- **Express:** Framework web utilizado en el backend, sobre el cual se realizan las pruebas.
 - **PostgreSQL** Motor de la base de datos con la cual se conecta el backend
 
 
@@ -159,12 +159,4 @@
 
 ---
 
-## Notas
-
-- Todos los endpoints devuelven errores con código `500` en caso de fallo interno.
-- Los IDs deben ser enteros válidos.
-- Los endpoints usan JSON para entrada y salida.
-- La base de datos utilizada es PostgreSQL.
-
----
 
