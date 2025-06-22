@@ -1,0 +1,11 @@
+# command 1
+
+docker build -t db-tarea3-sa .
+
+
+# command 2
+docker run -d \
+  --name db-tarea3-sa \
+  --env-file .env \
+  -p 5432:5432 \
+  db-tarea3-sa
