@@ -18,6 +18,17 @@ Las pruebas están ubicadas en el directorio:
 
 ---
 
+## ¿Cómo correr los tests?
+
+Dirigirse al directorio
+`/cmdb-api/`
+
+y ejecutar
+
+```bash
+npm run test
+```
+
 ## Descripción de los tests implementados
 
 El archivo principal de pruebas es [`ci.spec.js`](../../cmdb-api/src/tests/ci.spec.js), el cual valida el funcionamiento de los endpoints principales de la API de CMDB. A continuación los casos princpales que se han cubiertto:
